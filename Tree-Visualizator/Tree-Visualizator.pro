@@ -35,7 +35,8 @@ HEADERS += \
         mainwindow.h \
     treerenderwidget.h \
     bst.h \
-    bstreedrawer.h
+    bstreedrawer.h \
+    treefactory.h
 
 FORMS += \
         mainwindow.ui

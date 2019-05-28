@@ -22,7 +22,7 @@ private slots:
     void deleteClicked() const;
 
 private:
-    BST* tree;
+    BST* curTree;
 };
 
 #endif // MAINWINDOW_H

@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    tree = ui->renderArea->getWorkingTree();
+    curTree = ui->renderArea->getWorkingTree();
     connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteClicked()));
     connect(ui->insertButton, SIGNAL(clicked()), this, SLOT(insertClicked()));
 }
@@ -22,7 +22,7 @@ void MainWindow::insertClicked() const
     QString value = ui->insertTxtBox->text();
     int val = value.toInt();
 
-    if(!this->tree->insert(val))
+    if(!this->curTree->insert(val))
         this->ui->statusBar->showMessage("Value " + QString::number(val) + " already exists in tree.");
      else
         this->ui->statusBar->showMessage("Value " + QString::number(val) + " inserted.");
@@ -36,7 +36,7 @@ void MainWindow::deleteClicked() const
     QString value = ui->deleteTxtBox->text();
     int val = value.toInt();
 
-    if(!this->tree->deleteItem(value.toInt()))
+    if(!this->curTree->deleteItem(value.toInt()))
         this->ui->statusBar->showMessage("Value " + QString::number(val) + " is not in tree...");
     else
         this->ui->statusBar->showMessage("Value " + QString::number(val) + " deleted.");

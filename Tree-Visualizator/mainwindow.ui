@@ -36,7 +36,7 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLineEdit" name="insertTxtBox"/>
@@ -50,7 +50,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QLineEdit" name="deleteTxtBox"/>
@@ -80,6 +80,23 @@
      <string>About</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuNew_Tree">
+     <property name="title">
+      <string>New Tree</string>
+     </property>
+     <addaction name="actionBST"/>
+     <addaction name="actionSplay_Tree"/>
+     <addaction name="actionRed_Black_Tree"/>
+    </widget>
+    <addaction name="menuNew_Tree"/>
+    <addaction name="actionLoad"/>
+    <addaction name="actionSave"/>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -91,6 +108,31 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionBST">
+   <property name="text">
+    <string>BST</string>
+   </property>
+  </action>
+  <action name="actionSplay_Tree">
+   <property name="text">
+    <string>Splay Tree</string>
+   </property>
+  </action>
+  <action name="actionRed_Black_Tree">
+   <property name="text">
+    <string>Red-Black Tree</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
