@@ -14,6 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
     curTree = ui->renderArea->getWorkingTree();
     connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteClicked()));
     connect(ui->insertButton, SIGNAL(clicked()), this, SLOT(insertClicked()));
+
+    // Create default save directory
+    QString directory = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/TreeVisualizer";
+    if (!QDir(directory).exists())
+        QDir().mkdir(directory);
 }
 
 MainWindow::~MainWindow()
@@ -60,15 +65,16 @@ void MainWindow::SaveMenuClicked() const
     {
         BSTreeMemento* state = curTree->createMemento();
         QString text = state->getTraversal();
+
+
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         {
             ui->statusBar->showMessage("Unable to open file at" + fileName);
             return;
         }
-        QTextStream writer(&file);
-        writer << text;
-        writer.flush();
+
+        state->writeToFile(file);
         file.close();
         ui->statusBar->showMessage("Tree was successfully saved to " + fileName);
     }

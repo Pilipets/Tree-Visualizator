@@ -2,15 +2,17 @@
 #define BSTREEMEMENTO_H
 
 #include<QString>
+#include<QFile>
+
 class BSTreeMemento{
     QString traversal;
 public:
-    BSTreeMemento();
-    void setTraversal(const QString& traversal){this->traversal = traversal;}
-    QString getTraversal(){return traversal;}
+    BSTreeMemento(){};
+    void setTraversal(const QString& traversal);
+    QString getTraversal();
 
     void readFromFile(const char* path);
-    void writeToFile(const char* path);
+    void writeToFile(QFile &file);
 };
 
 

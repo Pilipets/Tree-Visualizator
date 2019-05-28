@@ -31,7 +31,8 @@ SOURCES += \
     bst.cpp \
     bstreedrawer.cpp \
     treefactory.cpp \
-    splaytree.cpp
+    splaytree.cpp \
+    bstreememento.cpp
 
 HEADERS += \
         mainwindow.h \
