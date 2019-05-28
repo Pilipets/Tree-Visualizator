@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     treerenderwidget.cpp \
-    bst.cpp
+    bst.cpp \
+    bstreedrawer.cpp
 
 HEADERS += \
         mainwindow.h \
     treerenderwidget.h \
-    bst.h
+    bst.h \
+    bstreedrawer.h
 
 FORMS += \
         mainwindow.ui

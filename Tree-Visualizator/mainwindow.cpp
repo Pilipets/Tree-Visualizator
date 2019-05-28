@@ -4,12 +4,11 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    tree = new BST();
     ui->setupUi(this);
 
+    tree = ui->renderArea->getWorkingTree();
     //connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteClicked()));
     connect(ui->insertButton, SIGNAL(clicked()), this, SLOT(insertClicked()));
-    ui->renderArea->setWorkingTree(tree);
 }
 
 MainWindow::~MainWindow()
@@ -19,6 +18,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::insertClicked() const
 {
+
     QString values = ui->insertTxtBox->text();
     int val = values.toInt();
 

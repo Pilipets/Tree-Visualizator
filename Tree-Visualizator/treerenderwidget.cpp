@@ -4,15 +4,8 @@
 TreeRenderWidget::TreeRenderWidget(QWidget *parent):
     QWidget (parent)
 {
-    this->scale = 1.0;
-    this->nodeColor = Qt::red;
-    this->backgroundColor = Qt::white;
-    this->textColor = Qt::black;
-}
-
-void TreeRenderWidget::setWorkingTree(BST *tree)
-{
-    this->tree = tree;
+    this->tree = new BST();
+    this->drawer = new BSTreeDrawer();
 }
 
 void TreeRenderWidget::paintEvent(QPaintEvent *event)
@@ -21,17 +14,17 @@ void TreeRenderWidget::paintEvent(QPaintEvent *event)
         return;
 
     QPainter painter(this);
+
     painter.setRenderHint(QPainter::Antialiasing);
 
     QBrush brush;
-    brush.setColor(this->nodeColor);
+    brush.setColor(Qt::red);
     brush.setStyle(Qt::SolidPattern);
-
     QPen pen;
-    pen.setColor(this->textColor);
+    pen.setColor(Qt::black);
 
     painter.setBrush(brush);
     painter.setPen(pen);
 
-    this->tree->draw(&painter, this->scale);
+    drawer->draw(&painter, tree->getRoot());
 }

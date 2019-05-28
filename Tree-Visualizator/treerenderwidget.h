@@ -7,21 +7,19 @@
 #include <QMouseEvent>
 #include <QColor>
 #include "bst.h"
-
+#include "bstreedrawer.h"
 class TreeRenderWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit TreeRenderWidget(QWidget *parent = 0);
-    void setWorkingTree(BST* tree);
+    BST* getWorkingTree() const { return  tree; }
 protected:
     void paintEvent(QPaintEvent *event) override;
+
 private:
+    BSTreeDrawer* drawer;
     BST *tree;
-    QColor backgroundColor;
-    QColor nodeColor;
-    QColor textColor;
-    double scale;
 };
 
 #endif // RENDERWIDGET_H
