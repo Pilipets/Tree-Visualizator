@@ -22,7 +22,7 @@ public:
     Node* getRoot() const{ return root;}
     bool insert(const int &val);
 
-    //bool deleteItem(int val);
+    bool deleteItem(int val);
 
 private:
     Node *root;

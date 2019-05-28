@@ -19,7 +19,7 @@ private:
     Ui::MainWindow *ui;
 private slots:
     void insertClicked() const;
-    //void deleteClicked() const;
+    void deleteClicked() const;
 
 private:
     BST* tree;

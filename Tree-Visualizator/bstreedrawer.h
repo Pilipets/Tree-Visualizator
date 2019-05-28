@@ -16,6 +16,7 @@ private:
     int getPxLocOfAncestor(Node *node);
     Node *getLeftmostNode(Node *node) const;
     void recursiveDraw(Node *node);
+
 private:
     QPainter *painter;
     int yspace;
