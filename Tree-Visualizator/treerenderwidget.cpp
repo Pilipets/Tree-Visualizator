@@ -4,7 +4,7 @@
 TreeRenderWidget::TreeRenderWidget(QWidget *parent):
     QWidget (parent)
 {
-    this->tree = new BST();
+    this->tree = TreeFactory::createTree(1);
     this->drawer = new BSTreeDrawer();
 }
 

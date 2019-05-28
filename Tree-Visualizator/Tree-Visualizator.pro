@@ -29,14 +29,17 @@ SOURCES += \
         mainwindow.cpp \
     treerenderwidget.cpp \
     bst.cpp \
-    bstreedrawer.cpp
+    bstreedrawer.cpp \
+    treefactory.cpp \
+    splaytree.cpp
 
 HEADERS += \
         mainwindow.h \
     treerenderwidget.h \
     bst.h \
     bstreedrawer.h \
-    treefactory.h
+    treefactory.h \
+    splaytree.h
 
 FORMS += \
         mainwindow.ui

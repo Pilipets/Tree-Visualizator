@@ -1,12 +1,12 @@
 #ifndef TREEFACTORY_H
 #define TREEFACTORY_H
 
+#include "bst.h"
+#include"splaytree.h"
 class TreeFactory{
-    static TreeFactory *factory;
+
 public:
-
-    void operator::new(size_t) override;
-
+    static BST* createTree(int type);
 };
 
 #endif // TREEFACTORY_H

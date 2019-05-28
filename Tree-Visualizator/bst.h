@@ -17,14 +17,15 @@ class BST
 {
 public:
     BST();
-    ~BST();
+    virtual ~BST();
     bool isEmpty() const;
     Node* getRoot() const{ return root;}
-    bool insert(const int &val);
 
-    bool deleteItem(int val);
+    virtual bool insert(const int &val);
 
-private:
+    virtual bool deleteItem(int val);
+
+protected:
     Node *root;
 };
 

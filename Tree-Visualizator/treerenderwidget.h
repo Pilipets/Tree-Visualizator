@@ -6,7 +6,7 @@
 #include <QBrush>
 #include <QMouseEvent>
 #include <QColor>
-#include "bst.h"
+#include "treefactory.h"
 #include "bstreedrawer.h"
 class TreeRenderWidget : public QWidget
 {

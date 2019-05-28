@@ -14,9 +14,8 @@ void BSTreeDrawer::draw(QPainter* painter, Node* tree)
     this->yspace = nodeRadius * 5;
 
     // Before drawing, must make sure that all nodes have x = 0 since in recursiveDraw() we check value of x on some nodes.
-    for(auto& elem: xShift){
-        elem.second = 0;
-    }
+    xShift.clear();
+    resetNodePosition(tree);
 
     // first node drawn (leftmost node) needs to have a static, predefined
     // location for the rest of the tree to be based off.
@@ -121,8 +120,15 @@ void BSTreeDrawer::recursiveDraw(Node *node)
     // Must be done after recursively drawing right child, otherwise x values will still be 0.
     if (node->rightChild != 0)
         painter->drawLine(QPoint(xShift[node], y + nodeRadius), QPoint(xShift[node->rightChild] - 2,((level + 1)* nodeRadius * 2 + yspace * level) - nodeRadius));
+}
 
-    return;
+void BSTreeDrawer::resetNodePosition(Node *node)
+{
+    if (node == 0)
+        return;
+    resetNodePosition(node->leftChild);
+    xShift[node] = 0;
+    resetNodePosition(node->rightChild);
 }
 
 BSTreeDrawer::BSTreeDrawer()
