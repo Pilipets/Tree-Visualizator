@@ -235,6 +235,7 @@ Makefile: ..\Tree-Visualizator\Tree-Visualizator.pro C:\MyPrograms\Qt\5.12.3\msv
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\qt_config.prf \
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\win32-msvc\qmake.conf \
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\exclusive_builds.prf \
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\common\msvc-version.conf \
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\toolchain.prf \
@@ -422,6 +423,7 @@ C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\qt_functions.prf:
 C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\qt_config.prf:
 C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\win32-msvc\qmake.conf:
 C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\spec_post.prf:
+.qmake.stash:
 C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\exclusive_builds.prf:
 C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\common\msvc-version.conf:
 C:\MyPrograms\Qt\5.12.3\msvc2017_64\mkspecs\features\toolchain.prf:

@@ -528,7 +528,44 @@ release\mainwindow.obj: ..\Tree-Visualizator\mainwindow.cpp ..\Tree-Visualizator
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qtouchdevice.h \
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qtabwidget.h \
 		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qicon.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtCore\QVariant \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QAction \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qaction.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qactiongroup.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QApplication \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qapplication.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtCore\qcoreapplication.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtCore\qeventloop.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qdesktopwidget.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qguiapplication.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qinputmethod.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QHBoxLayout \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qboxlayout.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qlayout.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qlayoutitem.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qgridlayout.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QLineEdit \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qlineedit.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qframe.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qtextcursor.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qtextformat.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qpen.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtGui\qtextoption.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QMenu \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qmenu.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QMenuBar \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qmenubar.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QPushButton \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qpushbutton.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qabstractbutton.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QSplitter \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qsplitter.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QStatusBar \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qstatusbar.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QToolBar \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\qtoolbar.h \
+		C:\MyPrograms\Qt\5.12.3\msvc2017_64\include\QtWidgets\QWidget
 
 release\moc_mainwindow.obj: release\moc_mainwindow.cpp 
 

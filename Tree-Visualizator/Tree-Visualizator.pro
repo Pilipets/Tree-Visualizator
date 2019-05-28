@@ -26,10 +26,13 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    treerenderwidget.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    treerenderwidget.h \
+    bst.h
 
 FORMS += \
         mainwindow.ui
