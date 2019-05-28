@@ -39,7 +39,8 @@ HEADERS += \
     bst.h \
     bstreedrawer.h \
     treefactory.h \
-    splaytree.h
+    splaytree.h \
+    bstreememento.h
 
 FORMS += \
         mainwindow.ui

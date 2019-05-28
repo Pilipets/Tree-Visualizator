@@ -4,8 +4,8 @@
 #include "bst.h"
 #include"splaytree.h"
 class TreeFactory{
-
 public:
+    explicit TreeFactory() = delete;
     static BST* createTree(int type);
 };
 

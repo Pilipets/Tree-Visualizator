@@ -1,5 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include<QTextStream>
+#include <QFileDialog>
+#include <QStandardPaths>
+#include <QFileInfo>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow)
@@ -43,4 +48,37 @@ void MainWindow::deleteClicked() const
 
     ui->renderArea->repaint();
     ui->deleteTxtBox->setText("");
+}
+
+void MainWindow::SaveMenuClicked() const
+{
+    QString fileName = QFileDialog::getSaveFileName(const_cast<MainWindow*>(this), tr("Save File"),
+                                 QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/TreeVisualizer",
+                                 tr("Text files (*.txt);;Images (*.png *.jpg)"));
+
+    if (QFileInfo(fileName).suffix() == "txt")
+    {
+        BSTreeMemento* state = curTree->createMemento();
+        QString text = state->getTraversal();
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            ui->statusBar->showMessage("Unable to open file at" + fileName);
+            return;
+        }
+        QTextStream writer(&file);
+        writer << text;
+        writer.flush();
+        file.close();
+        ui->statusBar->showMessage("Tree was successfully saved to " + fileName);
+    }
+
+    // if not txt, save as image
+    else if(!ui->renderArea->grab().save(fileName))
+    {
+        ui->statusBar->showMessage("Error: image was not saved!");
+    }
+    else{
+        ui->statusBar->showMessage("Image was successfully saved.");
+    }
 }

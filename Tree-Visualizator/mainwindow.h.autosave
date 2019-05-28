@@ -26,7 +26,6 @@ private slots:
 
 private:
     BST* curTree;
-    HistoryManager* stateObserver;
 };
 
 #endif // MAINWINDOW_H

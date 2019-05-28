@@ -1,5 +1,29 @@
-
 #include "bst.h"
+#include<QStack>
+
+
+QString BST::getPreOrderTraversal() const
+{
+    QStack<Node*> stack;
+    QString traversal;
+    Node *tmp = this->root;
+    while (true) {
+        // Go to the left extreme insert all the elements to stack, add to string as encountered
+        while (tmp != 0) {
+            traversal.append(QString::number(tmp->data) + " ");
+            stack.push(tmp);
+            tmp = tmp->leftChild;
+        }
+        // check if Stack is empty, if yes, exit from everywhere
+        if (stack.isEmpty()) {
+            return traversal;
+        }
+        // pop the element from the stack, add the nodes at
+        // the right to the Stack
+        tmp = stack.pop();
+        tmp = tmp->rightChild;
+    }
+}
 
 BST::BST(): root(0)
 {
@@ -201,6 +225,12 @@ bool BST::deleteItem(int item)
             }
    }
     return found;
+}
+
+BSTreeMemento *BST::createMemento()
+{
+    BSTreeMemento* state = new BSTreeMemento();
+    state->setTraversal(this->getPreOrderTraversal());
 }
 
 Node::Node(const int &val):

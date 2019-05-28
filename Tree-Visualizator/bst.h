@@ -2,6 +2,7 @@
 #define BST_H
 
 #include <QPainter>
+#include "bstreememento.h"
 
 struct Node
 {
@@ -15,6 +16,8 @@ struct Node
 
 class BST
 {
+private:
+    QString getPreOrderTraversal() const;
 public:
     BST();
     virtual ~BST();
@@ -25,6 +28,7 @@ public:
 
     virtual bool deleteItem(int val);
 
+    BSTreeMemento* createMemento();
 protected:
     Node *root;
 };
