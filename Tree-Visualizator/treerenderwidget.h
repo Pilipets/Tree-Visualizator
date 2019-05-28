@@ -12,8 +12,8 @@ class TreeRenderWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TreeRenderWidget(BST *tree, QWidget *parent = 0);
-
+    explicit TreeRenderWidget(QWidget *parent = 0);
+    void setWorkingTree(BST* tree);
 protected:
     void paintEvent(QPaintEvent *event) override;
 private:

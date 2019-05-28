@@ -1,15 +1,18 @@
 
 #include "treerenderwidget.h"
 
-TreeRenderWidget::TreeRenderWidget(BST *tree, QWidget *parent):
+TreeRenderWidget::TreeRenderWidget(QWidget *parent):
     QWidget (parent)
 {
-    this->tree = tree;
-
     this->scale = 1.0;
     this->nodeColor = Qt::red;
     this->backgroundColor = Qt::white;
     this->textColor = Qt::black;
+}
+
+void TreeRenderWidget::setWorkingTree(BST *tree)
+{
+    this->tree = tree;
 }
 
 void TreeRenderWidget::paintEvent(QPaintEvent *event)

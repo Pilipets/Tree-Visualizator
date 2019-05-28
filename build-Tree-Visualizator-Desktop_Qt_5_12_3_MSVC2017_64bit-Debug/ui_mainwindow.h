@@ -18,11 +18,11 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include <treerenderwidget.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -30,18 +30,16 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
+    TreeRenderWidget *renderArea;
     QSplitter *splitter;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
-    QLineEdit *lineEdit_2;
+    QLineEdit *insertTxtBox;
     QPushButton *insertButton;
     QWidget *widget1;
     QHBoxLayout *horizontalLayout_2;
-    QLineEdit *lineEdit;
+    QLineEdit *deleteTxtBox;
     QPushButton *deleteButton;
-    QPushButton *propertyButton;
     QMenuBar *menuBar;
     QMenu *menuAbout;
     QToolBar *mainToolBar;
@@ -54,14 +52,9 @@ public:
         MainWindow->resize(908, 631);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        scrollArea = new QScrollArea(centralWidget);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setGeometry(QRect(729, 230, 61, 87));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 59, 85));
-        scrollArea->setWidget(scrollAreaWidgetContents);
+        renderArea = new TreeRenderWidget(centralWidget);
+        renderArea->setObjectName(QString::fromUtf8("renderArea"));
+        renderArea->setGeometry(QRect(20, 20, 861, 491));
         splitter = new QSplitter(centralWidget);
         splitter->setObjectName(QString::fromUtf8("splitter"));
         splitter->setGeometry(QRect(120, 530, 571, 30));
@@ -73,10 +66,10 @@ public:
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        lineEdit_2 = new QLineEdit(widget);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        insertTxtBox = new QLineEdit(widget);
+        insertTxtBox->setObjectName(QString::fromUtf8("insertTxtBox"));
 
-        horizontalLayout->addWidget(lineEdit_2);
+        horizontalLayout->addWidget(insertTxtBox);
 
         insertButton = new QPushButton(widget);
         insertButton->setObjectName(QString::fromUtf8("insertButton"));
@@ -91,10 +84,10 @@ public:
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        lineEdit = new QLineEdit(widget1);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        deleteTxtBox = new QLineEdit(widget1);
+        deleteTxtBox->setObjectName(QString::fromUtf8("deleteTxtBox"));
 
-        horizontalLayout_2->addWidget(lineEdit);
+        horizontalLayout_2->addWidget(deleteTxtBox);
 
         deleteButton = new QPushButton(widget1);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
@@ -102,9 +95,6 @@ public:
         horizontalLayout_2->addWidget(deleteButton);
 
         splitter->addWidget(widget1);
-        propertyButton = new QPushButton(splitter);
-        propertyButton->setObjectName(QString::fromUtf8("propertyButton"));
-        splitter->addWidget(propertyButton);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -129,9 +119,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        insertButton->setText(QApplication::translate("MainWindow", "Add", nullptr));
-        deleteButton->setText(QApplication::translate("MainWindow", "Remove", nullptr));
-        propertyButton->setText(QApplication::translate("MainWindow", "Properties", nullptr));
+        insertButton->setText(QApplication::translate("MainWindow", "Insert", nullptr));
+        deleteButton->setText(QApplication::translate("MainWindow", "Delete", nullptr));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", nullptr));
     } // retranslateUi
 

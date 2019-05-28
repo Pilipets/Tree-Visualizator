@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "bst.h"
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +17,12 @@ public:
 
 private:
     Ui::MainWindow *ui;
+private slots:
+    void insertClicked() const;
+    //void deleteClicked() const;
+
+private:
+    BST* tree;
 };
 
 #endif // MAINWINDOW_H
