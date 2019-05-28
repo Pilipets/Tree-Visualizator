@@ -131,6 +131,57 @@ std::pair<bool, SplayNode*> SplayTree::insert(SplayNode *tree, const int &key)
     return std::make_pair(true, newnode); // newnode becomes new root
 }
 
+std::pair<bool, SplayNode *> SplayTree::deleteItem(SplayNode *tree, const int &key)
+{
+    if (!tree)
+        return std::make_pair(false,nullptr);
+
+     // Splay the given key
+     tree = splay(tree, key);
+
+     // If key is not present, then
+     // return root
+     if (key != tree->data)
+         return std::make_pair(false,tree);
+
+     // If key is present
+     // If left child of root does not exist
+     // make root->right as root
+     SplayNode *temp;
+     if (!tree->leftChild)
+     {
+         temp = tree;
+         if(tree->rightChild) tree->rightChild->parent = temp->parent;
+         tree = static_cast<SplayNode*>(tree->rightChild);
+     }
+
+     // Else if left child exits
+     else
+     {
+         temp = tree;
+
+         /*Note: Since key == root->key,
+         so after Splay(root->left_child, key),
+         the tree we get will have no right child tree
+         and maximum node in left subtree will get splayed*/
+         // New root
+         tree = splay(static_cast<SplayNode*>(tree->leftChild), key);
+         tree->parent = temp->parent;
+
+         // Make right child of previous root  as
+         // new root's right child
+         tree->rightChild = temp->rightChild;
+         if(temp->rightChild) temp->rightChild->parent = tree;
+     }
+
+     // free the previous root node, that is,
+     // the node containing the key
+     delete temp;
+
+     // return root of the new Splay Tree
+     return std::make_pair(true,tree);
+}
+
 SplayTree::SplayTree() : BST()
 {
 
@@ -141,6 +192,13 @@ bool SplayTree::insert(const int &key)
     auto insertionResult = insert(static_cast<SplayNode*>(root), key);
     root = insertionResult.second;
     return insertionResult.first;
+}
+
+bool SplayTree::deleteItem(int val)
+{
+    auto deletionResult = deleteItem(static_cast<SplayNode*>(root), val);
+    root = deletionResult.second;
+    return deletionResult.first;
 }
 
 SplayNode::SplayNode(int val) : Node(val)

@@ -15,11 +15,12 @@ private:
     SplayNode *splay(SplayNode *root, const int &key);
 
     std::pair<bool, SplayNode*> insert(SplayNode *root, const int &key);
-    //std::pair<bool, SplayNode*> delete_key(SplayNode *root, const int &key);
+    std::pair<bool, SplayNode *> deleteItem(SplayNode *root, const int &key);
 public:
     SplayTree();
 
     bool insert(const int &key) override;
+    bool deleteItem(int val) override;
 };
 
 #endif // SPLAYTREE_H
