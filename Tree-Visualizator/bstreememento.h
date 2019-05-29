@@ -7,7 +7,7 @@
 class BSTreeMemento{
     QString traversal;
 public:
-    BSTreeMemento(){};
+    BSTreeMemento();
     void setTraversal(const QString& traversal);
     QString getTraversal();
 

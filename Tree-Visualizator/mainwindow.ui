@@ -67,7 +67,7 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="tab_5">
+    <widget class="QWidget" name="mainTab">
      <attribute name="title">
       <string>Tab 1</string>
      </attribute>
@@ -81,6 +81,11 @@
        </rect>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
     </widget>
    </widget>
   </widget>

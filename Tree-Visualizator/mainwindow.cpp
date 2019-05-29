@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QString directory = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/TreeVisualizer";
     if (!QDir(directory).exists())
         QDir().mkdir(directory);
+
+    ui->scrollAreaWidgetContents_3
 }
 
 MainWindow::~MainWindow()
@@ -75,7 +77,6 @@ void MainWindow::SaveMenuClicked() const
         }
 
         state->writeToFile(file);
-        file.close();
         ui->statusBar->showMessage("Tree was successfully saved to " + fileName);
     }
 
