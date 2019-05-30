@@ -25,6 +25,15 @@ QString BST::getPreOrderTraversal() const
     }
 }
 
+void BST::recursiveDeleteNodes(const Node *node)
+{
+    if (node == 0)
+        return;
+    recursiveDeleteNodes(node->leftChild);
+    recursiveDeleteNodes(node->rightChild);
+    delete node;
+}
+
 BST::BST(): root(0)
 {
 
@@ -32,6 +41,7 @@ BST::BST(): root(0)
 
 BST::~BST()
 {
+    this->clear();
     this->root = 0;
 }
 
@@ -227,10 +237,28 @@ bool BST::deleteItem(int item)
     return found;
 }
 
-BSTreeMemento *BST::createMemento()
+BSTreeMemento BST::createMemento()
 {
-    BSTreeMemento* state = new BSTreeMemento();
-    state->setTraversal(this->getPreOrderTraversal());
+    BSTreeMemento state;
+    state.setTraversal(this->getPreOrderTraversal());
+    return state;
+}
+
+void BST::setMemento(const BSTreeMemento &state)
+{
+    this->clear();
+    //RegEx for ' ' or ',' or '.' or ':' or '\t'
+    QStringList query = state.getTraversal().split(QRegExp("(\\ )"), QString::SkipEmptyParts);
+
+    for(QString& item: query){
+        this->insert(item.toInt());
+    }
+}
+
+void BST::clear()
+{
+    recursiveDeleteNodes(root);
+    root = 0;
 }
 
 Node::Node(const int &val):

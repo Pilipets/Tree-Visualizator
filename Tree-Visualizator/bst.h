@@ -18,6 +18,7 @@ class BST
 {
 private:
     QString getPreOrderTraversal() const;
+    void recursiveDeleteNodes(const Node *node);
 public:
     BST();
     virtual ~BST();
@@ -28,7 +29,9 @@ public:
 
     virtual bool deleteItem(int val);
 
-    BSTreeMemento* createMemento();
+    BSTreeMemento createMemento();
+    void setMemento(const BSTreeMemento& state);
+    void clear();
 protected:
     Node *root;
 };

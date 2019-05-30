@@ -1,8 +1,9 @@
 #include "bstreedrawer.h"
 
-void BSTreeDrawer::draw(QPainter* painter, Node* tree)
+void BSTreeDrawer::draw(QPainter* painter, Node* tree, double scale)
 {
     this->painter = painter;
+    this->scale = scale;
     if(tree == 0)
         return;
     // Set properties of the painter for drawing the tree
@@ -133,5 +134,4 @@ void BSTreeDrawer::resetNodePosition(Node *node)
 
 BSTreeDrawer::BSTreeDrawer()
 {
-    this->scale = 1.0;
 }

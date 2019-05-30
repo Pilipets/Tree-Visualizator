@@ -14,38 +14,39 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QSplitter" name="splitter">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>530</y>
-      <width>571</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-    <widget class="QWidget" name="layoutWidget">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0" colspan="5">
+       <widget class="TreeRenderWidget" name="renderArea" native="true"/>
+      </item>
+      <item row="1" column="0">
        <widget class="QLineEdit" name="insertTxtBox"/>
       </item>
-      <item>
+      <item row="1" column="1">
        <widget class="QPushButton" name="insertButton">
         <property name="text">
          <string>Insert</string>
         </property>
        </widget>
       </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="layoutWidget">
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
+      <item row="1" column="2">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>62</width>
+          <height>25</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="3">
        <widget class="QLineEdit" name="deleteTxtBox"/>
       </item>
-      <item>
+      <item row="1" column="4">
        <widget class="QPushButton" name="deleteButton">
         <property name="text">
          <string>Delete</string>
@@ -53,41 +54,8 @@
        </widget>
       </item>
      </layout>
-    </widget>
-   </widget>
-   <widget class="QTabWidget" name="tabWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>891</width>
-      <height>521</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="mainTab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="TreeRenderWidget" name="renderArea" native="true">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>861</width>
-        <height>471</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_5">
-     <attribute name="title">
-      <string>Page</string>
-     </attribute>
-    </widget>
-   </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -113,13 +81,28 @@
      </property>
      <addaction name="actionBST"/>
      <addaction name="actionSplay_Tree"/>
-     <addaction name="actionRed_Black_Tree"/>
     </widget>
     <addaction name="menuNew_Tree"/>
     <addaction name="actionLoad"/>
     <addaction name="actionSave"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuConvert_To">
+     <property name="title">
+      <string>Convert To</string>
+     </property>
+     <addaction name="actionBST_2"/>
+     <addaction name="actionSplay_Tree_2"/>
+    </widget>
+    <addaction name="menuConvert_To"/>
+    <addaction name="actionReset"/>
    </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -154,6 +137,31 @@
   <action name="actionSave">
    <property name="text">
     <string>Save</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionBST_2">
+   <property name="text">
+    <string>BST</string>
+   </property>
+  </action>
+  <action name="actionSplay_Tree_2">
+   <property name="text">
+    <string>Splay Tree</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="text">
+    <string>Reset</string>
    </property>
   </action>
  </widget>

@@ -8,7 +8,7 @@
 class BSTreeDrawer{
 public:
     BSTreeDrawer();
-    void draw(QPainter* painter, Node* tree);
+    void draw(QPainter* painter, Node* tree, double scale);
 
 private:
     int getNodeLevel(Node *node);

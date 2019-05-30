@@ -9,10 +9,9 @@ class BSTreeMemento{
 public:
     BSTreeMemento();
     void setTraversal(const QString& traversal);
-    QString getTraversal();
-
-    void readFromFile(const char* path);
-    void writeToFile(QFile &file);
+    QString getTraversal() const {return traversal;}
+    bool writeToFile(const QString &fileName);
+    bool readFromFile(const QString &fileName);
 };
 
 
