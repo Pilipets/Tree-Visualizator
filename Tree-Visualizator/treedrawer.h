@@ -3,11 +3,11 @@
 
 #include <QPainter>
 #include<QWidget>
-#include "bst.h"
+#include "tree.h"
 #include<unordered_map>
-class BSTreeDrawer{
+class TreeDrawer{
 public:
-    BSTreeDrawer();
+    TreeDrawer();
     void draw(QPainter* painter, Node* tree, double scale);
 
 private:

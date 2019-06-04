@@ -4,10 +4,10 @@
 #include "bst.h"
 
 struct SplayNode: public Node{
-    SplayNode(int val);
+    SplayNode(const int &val);
 };
 
-class SplayTree : public BST{
+class SplayTree : public Tree{
 private:
     SplayNode *rightRotate(SplayNode *y);
     SplayNode *leftRotate(SplayNode *x);
@@ -17,10 +17,11 @@ private:
     std::pair<bool, SplayNode*> insert(SplayNode *root, const int &key);
     std::pair<bool, SplayNode *> deleteItem(SplayNode *root, const int &key);
 public:
-    SplayTree();
+    SplayTree() = default;
+    ~SplayTree() override = default;
 
     bool insert(const int &key) override;
-    bool deleteItem(int val) override;
+    bool deleteItem(const int &val) override;
 };
 
 #endif // SPLAYTREE_H

@@ -1,56 +1,7 @@
 #include "bst.h"
 #include<QStack>
 
-
-QString BST::getPreOrderTraversal() const
-{
-    QStack<Node*> stack;
-    QString traversal;
-    Node *tmp = this->root;
-    while (true) {
-        // Go to the left extreme insert all the elements to stack, add to string as encountered
-        while (tmp != 0) {
-            traversal.append(QString::number(tmp->data) + " ");
-            stack.push(tmp);
-            tmp = tmp->leftChild;
-        }
-        // check if Stack is empty, if yes, exit from everywhere
-        if (stack.isEmpty()) {
-            return traversal;
-        }
-        // pop the element from the stack, add the nodes at
-        // the right to the Stack
-        tmp = stack.pop();
-        tmp = tmp->rightChild;
-    }
-}
-
-void BST::recursiveDeleteNodes(const Node *node)
-{
-    if (node == 0)
-        return;
-    recursiveDeleteNodes(node->leftChild);
-    recursiveDeleteNodes(node->rightChild);
-    delete node;
-}
-
-BST::BST(): root(0)
-{
-
-}
-
-BST::~BST()
-{
-    this->clear();
-    this->root = 0;
-}
-
-bool BST::isEmpty() const
-{
-    return root == 0;
-}
-
-bool BST::insert(const int &item)
+bool BSTree::insert(const int &item)
 {
     Node *newNode = new Node(item);
 
@@ -91,7 +42,7 @@ bool BST::insert(const int &item)
     return true;
 }
 
-bool BST::deleteItem(int item)
+bool BSTree::deleteItem(const int &item)
 {
     if (this->isEmpty())
         return false;
@@ -237,32 +188,4 @@ bool BST::deleteItem(int item)
     return found;
 }
 
-BSTreeMemento BST::createMemento()
-{
-    BSTreeMemento state;
-    state.setTraversal(this->getPreOrderTraversal());
-    return state;
-}
-
-void BST::setMemento(const BSTreeMemento &state)
-{
-    this->clear();
-    //RegEx for ' ' or ',' or '.' or ':' or '\t'
-    QStringList query = state.getTraversal().split(QRegExp("(\\ )"), QString::SkipEmptyParts);
-
-    for(QString& item: query){
-        this->insert(item.toInt());
-    }
-}
-
-void BST::clear()
-{
-    recursiveDeleteNodes(root);
-    root = 0;
-}
-
-Node::Node(const int &val):
-    data(val), leftChild(0), rightChild(0), parent(0)
-{
-
-}
+BSTNode::BSTNode(const int &val) : Node(val){}

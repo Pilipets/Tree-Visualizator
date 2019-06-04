@@ -13,14 +13,14 @@ TreeRenderWidget::~TreeRenderWidget()
     delete drawer;
 }
 
-void TreeRenderWidget::setWorkingTree(BST *tree)
+void TreeRenderWidget::setWorkingTree(Tree *tree)
 {
     if(this->tree)
         delete this->tree;
     this->tree = tree;
 }
 
-void TreeRenderWidget::setDrawer(BSTreeDrawer *drawer)
+void TreeRenderWidget::setDrawer(TreeDrawer *drawer)
 {
     if(this->drawer)
         delete this->drawer;

@@ -7,16 +7,16 @@
 #include <QMouseEvent>
 #include <QColor>
 #include "treefactory.h"
-#include "bstreedrawer.h"
+#include "treedrawer.h"
 class TreeRenderWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit TreeRenderWidget(QWidget *parent = 0);
     ~TreeRenderWidget();
-    BST* getWorkingTree() const { return  tree; }
-    void setWorkingTree(BST *tree);
-    void setDrawer(BSTreeDrawer* drawer);
+    Tree* getWorkingTree() const { return  tree; }
+    void setWorkingTree(Tree *tree);
+    void setDrawer(TreeDrawer* drawer);
 
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
@@ -29,8 +29,8 @@ protected:
 
 private:
     double scale;
-    BSTreeDrawer* drawer;
-    BST *tree;
+    TreeDrawer* drawer;
+    Tree *tree;
 };
 
 #endif // RENDERWIDGET_H

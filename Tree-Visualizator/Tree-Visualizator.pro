@@ -29,20 +29,23 @@ SOURCES += \
         mainwindow.cpp \
     treerenderwidget.cpp \
     bst.cpp \
-    bstreedrawer.cpp \
     treefactory.cpp \
     splaytree.cpp \
-    bstreememento.cpp
+    tree.cpp \
+    treedrawer.cpp \
+    treememento.cpp
 
 HEADERS += \
         mainwindow.h \
     treerenderwidget.h \
     bst.h \
-    bstreedrawer.h \
     treefactory.h \
     splaytree.h \
-    bstreememento.h \
-    renderwidgetbuilder.h
+    renderwidgetbuilder.h \
+    treevisitor.h \
+    tree.h \
+    treedrawer.h \
+    treememento.h
 
 FORMS += \
         mainwindow.ui

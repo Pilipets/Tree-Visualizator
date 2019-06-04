@@ -182,11 +182,6 @@ std::pair<bool, SplayNode *> SplayTree::deleteItem(SplayNode *tree, const int &k
      return std::make_pair(true,tree);
 }
 
-SplayTree::SplayTree() : BST()
-{
-
-}
-
 bool SplayTree::insert(const int &key)
 {
     auto insertionResult = insert(static_cast<SplayNode*>(root), key);
@@ -194,14 +189,11 @@ bool SplayTree::insert(const int &key)
     return insertionResult.first;
 }
 
-bool SplayTree::deleteItem(int val)
+bool SplayTree::deleteItem(const int &val)
 {
     auto deletionResult = deleteItem(static_cast<SplayNode*>(root), val);
     root = deletionResult.second;
     return deletionResult.first;
 }
 
-SplayNode::SplayNode(int val) : Node(val)
-{
-
-}
+SplayNode::SplayNode(const int &val) : Node(val){}

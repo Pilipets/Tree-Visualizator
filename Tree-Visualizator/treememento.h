@@ -4,10 +4,10 @@
 #include<QString>
 #include<QFile>
 
-class BSTreeMemento{
+class TreeMemento{
     QString traversal;
 public:
-    BSTreeMemento();
+    TreeMemento();
     void setTraversal(const QString& traversal);
     QString getTraversal() const {return traversal;}
     bool writeToFile(const QString &fileName);

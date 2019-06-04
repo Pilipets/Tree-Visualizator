@@ -1,6 +1,6 @@
-#include "bstreedrawer.h"
+#include "treedrawer.h"
 
-void BSTreeDrawer::draw(QPainter* painter, Node* tree, double scale)
+void TreeDrawer::draw(QPainter* painter, Node* tree, double scale)
 {
     this->painter = painter;
     this->scale = scale;
@@ -29,7 +29,7 @@ void BSTreeDrawer::draw(QPainter* painter, Node* tree, double scale)
     return;
 }
 
-int BSTreeDrawer::getNodeLevel(Node *node)
+int TreeDrawer::getNodeLevel(Node *node)
 {
     int level = 1;
     Node *current = node;
@@ -41,7 +41,7 @@ int BSTreeDrawer::getNodeLevel(Node *node)
     return level;
 }
 
-int BSTreeDrawer::getPxLocOfLeftTree(Node *node)
+int TreeDrawer::getPxLocOfLeftTree(Node *node)
 {
     if(node->rightChild == 0){
         return xShift[node];
@@ -49,7 +49,7 @@ int BSTreeDrawer::getPxLocOfLeftTree(Node *node)
     return getPxLocOfLeftTree(node->rightChild);
 }
 
-int BSTreeDrawer::getPxLocOfAncestor(Node *node)
+int TreeDrawer::getPxLocOfAncestor(Node *node)
 {
     // All ancestor's node->x will be 0 unless it has already been drawn -
     // find the ancestor who's x != 0
@@ -61,14 +61,14 @@ int BSTreeDrawer::getPxLocOfAncestor(Node *node)
     return xShift[currentNode];
 }
 
-Node *BSTreeDrawer::getLeftmostNode(Node *node) const
+Node *TreeDrawer::getLeftmostNode(Node *node) const
 {
     if (node->leftChild == 0)
         return node;
     return getLeftmostNode(node->leftChild);
 }
 
-void BSTreeDrawer::recursiveDraw(Node *node)
+void TreeDrawer::recursiveDraw(Node *node)
 {
     // Base case
     if (node == 0)
@@ -123,7 +123,7 @@ void BSTreeDrawer::recursiveDraw(Node *node)
         painter->drawLine(QPoint(xShift[node], y + nodeRadius), QPoint(xShift[node->rightChild] - 2,((level + 1)* nodeRadius * 2 + yspace * level) - nodeRadius));
 }
 
-void BSTreeDrawer::resetNodePosition(Node *node)
+void TreeDrawer::resetNodePosition(Node *node)
 {
     if (node == 0)
         return;
@@ -132,6 +132,6 @@ void BSTreeDrawer::resetNodePosition(Node *node)
     resetNodePosition(node->rightChild);
 }
 
-BSTreeDrawer::BSTreeDrawer()
+TreeDrawer::TreeDrawer()
 {
 }

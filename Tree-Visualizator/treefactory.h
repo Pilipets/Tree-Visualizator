@@ -6,7 +6,7 @@
 class TreeFactory{
 public:
     explicit TreeFactory() = delete;
-    static BST* createTree(int type);
+    static Tree* createTree(int type);
 };
 
 #endif // TREEFACTORY_H

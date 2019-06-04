@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    simpleTreeDirector = new TreeWidgetDirector(new BSTreeRenderWidgetBuilder);
+    bsTreeDirector = new TreeWidgetDirector(new BSTreeRenderWidgetBuilder);
     splayTreeDirector = new TreeWidgetDirector(new SplayTreeRenderWidgetBuilder);
 
     splayTreeDirector->ConstructRenderWindow(ui->renderArea);
@@ -30,7 +30,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 
-    delete simpleTreeDirector;
+    delete bsTreeDirector;
     delete  splayTreeDirector;
 
 }
@@ -99,7 +99,7 @@ void MainWindow::SaveMenuClicked() const
 
     if (QFileInfo(fileName).suffix() == "txt")
     {
-        BSTreeMemento state = curTree->createMemento();
+        TreeMemento state = curTree->createMemento();
         if(!state.writeToFile(fileName))
         {
             ui->statusBar->showMessage("Unable to open file at" + fileName);
@@ -125,7 +125,7 @@ void MainWindow::LoadMenuClicked() const
                                  tr("Text files (*.txt)"));
     curTree->clear();
 
-    BSTreeMemento state;
+    TreeMemento state;
     if(!state.readFromFile(fileName))
     {
         ui->statusBar->showMessage("Could not open file!");
@@ -154,7 +154,7 @@ void MainWindow::ExitMenuClicked()
 
 void MainWindow::newBSTreeOptionClicked()
 {
-    simpleTreeDirector->ConstructRenderWindow(ui->renderArea);
+    bsTreeDirector->ConstructRenderWindow(ui->renderArea);
     ui->renderArea->repaint();
     ui->statusBar->showMessage("New BST was created");
 }

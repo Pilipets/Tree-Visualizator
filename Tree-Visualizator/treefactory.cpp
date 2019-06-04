@@ -1,11 +1,11 @@
 #include "treefactory.h"
 
-BST *TreeFactory::createTree(int type)
+Tree *TreeFactory::createTree(int type)
 {
-    BST* tree = nullptr;
+    Tree* tree = nullptr;
     switch (type) {
     case 0:
-        tree = new BST();
+        tree = new BSTree();
         break;
     case 1:
         tree = new SplayTree();

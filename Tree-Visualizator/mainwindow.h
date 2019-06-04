@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "bst.h"
-#include "bstreememento.h"
+#include "tree.h"
+#include "treememento.h"
 #include "renderwidgetbuilder.h"
 
 namespace Ui {
@@ -41,8 +41,8 @@ private slots:
     void on_btnZoomOut_clicked();
 
 private:
-    BST* curTree;
-    TreeWidgetDirector* simpleTreeDirector;
+    Tree* curTree;
+    TreeWidgetDirector* bsTreeDirector;
     TreeWidgetDirector* splayTreeDirector;
 
 };

@@ -1,16 +1,16 @@
-#include"bstreememento.h"
+#include"treememento.h"
 #include <QTextStream>
 #include <QFile>
-BSTreeMemento::BSTreeMemento()
+TreeMemento::TreeMemento()
 {
 }
 
-void BSTreeMemento::setTraversal(const QString &traversal)
+void TreeMemento::setTraversal(const QString &traversal)
 {
     this->traversal = traversal;
 }
 
-bool BSTreeMemento::writeToFile(const QString &fileName)
+bool TreeMemento::writeToFile(const QString &fileName)
 {
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -24,7 +24,7 @@ bool BSTreeMemento::writeToFile(const QString &fileName)
     return true;
 }
 
-bool BSTreeMemento::readFromFile(const QString &fileName)
+bool TreeMemento::readFromFile(const QString &fileName)
 {
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))

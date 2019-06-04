@@ -3,30 +3,39 @@
 
 #include "treerenderwidget.h"
 #include "treefactory.h"
-class BSTreeRenderWidgetBuilder{
+class TreeRenderWidgetBuilder{
 public:
-    BSTreeRenderWidgetBuilder(){}
-    virtual ~BSTreeRenderWidgetBuilder() {}
+    TreeRenderWidgetBuilder() = default;
+    virtual ~TreeRenderWidgetBuilder() = default;
 
-    virtual void buildTree(TreeRenderWidget* widget) { widget->setWorkingTree(TreeFactory::createTree(0));}
-    virtual void buildDrawer(TreeRenderWidget* widget)  {widget->setDrawer(new BSTreeDrawer());}
+    virtual void buildTree(TreeRenderWidget* widget) = 0;
+    virtual void buildDrawer(TreeRenderWidget* widget) = 0;
 
 };
 
-class SplayTreeRenderWidgetBuilder : public BSTreeRenderWidgetBuilder{
+class BSTreeRenderWidgetBuilder : public TreeRenderWidgetBuilder{
 public:
-    SplayTreeRenderWidgetBuilder() : BSTreeRenderWidgetBuilder(){}
-    ~SplayTreeRenderWidgetBuilder() override{}
+    BSTreeRenderWidgetBuilder() = default;
+    ~BSTreeRenderWidgetBuilder() override = default;
+
+    void buildTree(TreeRenderWidget* widget) override { widget->setWorkingTree(TreeFactory::createTree(0));}
+    void buildDrawer(TreeRenderWidget* widget) override {widget->setDrawer(new TreeDrawer());}
+};
+
+class SplayTreeRenderWidgetBuilder : public TreeRenderWidgetBuilder{
+public:
+    SplayTreeRenderWidgetBuilder() = default;
+    ~SplayTreeRenderWidgetBuilder() override = default;
 
     void buildTree(TreeRenderWidget* widget) override {widget->setWorkingTree(TreeFactory::createTree(1));}
-    void buildDrawer(TreeRenderWidget* widget) override {widget->setDrawer(new BSTreeDrawer());}
+    void buildDrawer(TreeRenderWidget* widget) override {widget->setDrawer(new TreeDrawer());}
 };
 
 class TreeWidgetDirector{
 private:
-    BSTreeRenderWidgetBuilder* builder;
+    TreeRenderWidgetBuilder* builder;
 public:
-    TreeWidgetDirector(BSTreeRenderWidgetBuilder* builder) : builder(builder){}
+    TreeWidgetDirector(TreeRenderWidgetBuilder* builder) : builder(builder){}
     ~TreeWidgetDirector(){ delete builder; }
 
     void ConstructRenderWindow(TreeRenderWidget* widget)
