@@ -22,6 +22,8 @@ public:
     QSize sizeHint() const override;
     void callRepaint();
     void autoSize();
+    void ZoomIn();
+    void ZoomOut();
 protected:
     void paintEvent(QPaintEvent *event) override;
 

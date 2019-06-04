@@ -55,6 +55,26 @@ void TreeRenderWidget::autoSize()
     //this->resize(size);
 }
 
+void TreeRenderWidget::ZoomIn()
+{
+    if (this->tree->isEmpty())
+        return;
+    if(this->scale < 2.0){
+        this->scale += 0.1;
+        this->repaint();
+    }
+}
+
+void TreeRenderWidget::ZoomOut()
+{
+    if (this->tree->isEmpty())
+        return;
+    if(this->scale > 0.2) {
+        this->scale -= 0.1;
+        this->repaint();
+    }
+}
+
 void TreeRenderWidget::paintEvent(QPaintEvent *event)
 {
     if (this->tree->isEmpty())
@@ -65,7 +85,7 @@ void TreeRenderWidget::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing);
 
     QBrush brush;
-    brush.setColor(Qt::red);
+    brush.setColor(Qt::green);
     brush.setStyle(Qt::SolidPattern);
     QPen pen;
     pen.setColor(Qt::black);

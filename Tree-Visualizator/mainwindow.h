@@ -36,6 +36,10 @@ private slots:
     void newBSTreeOptionClicked();
     void newSplayTreeOptionClicked();
 
+    void on_btnZoomIn_clicked();
+
+    void on_btnZoomOut_clicked();
+
 private:
     BST* curTree;
     TreeWidgetDirector* simpleTreeDirector;

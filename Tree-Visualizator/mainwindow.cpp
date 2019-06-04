@@ -165,3 +165,15 @@ void MainWindow::newSplayTreeOptionClicked()
     ui->renderArea->repaint();
     ui->statusBar->showMessage("New Splay Tree was created");
 }
+
+void MainWindow::on_btnZoomIn_clicked()
+{
+    ui->renderArea->ZoomIn();
+    ui->statusBar->showMessage("Window was extended");
+}
+
+void MainWindow::on_btnZoomOut_clicked()
+{
+    ui->renderArea->ZoomOut();
+    ui->statusBar->showMessage("Window was narrowed");
+}
