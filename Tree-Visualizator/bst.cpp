@@ -188,4 +188,9 @@ bool BSTree::deleteItem(const int &item)
     return found;
 }
 
+void BSTree::accept(TreeVisitor &v)
+{
+    v.visit(this);
+}
+
 BSTNode::BSTNode(const int &val) : Node(val){}

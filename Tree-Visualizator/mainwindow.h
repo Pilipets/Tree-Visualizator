@@ -5,7 +5,7 @@
 #include "tree.h"
 #include "treememento.h"
 #include "renderwidgetbuilder.h"
-
+#include "propertieswindow.h"
 namespace Ui {
 class MainWindow;
 }
@@ -22,13 +22,15 @@ private:
     Ui::MainWindow *ui;
 
     void connectActions();
+    void disconnectActions();
 
-    //void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);
     void resizeEvent(QResizeEvent* event);
 private slots:
     void insertClicked();
     void deleteClicked();
 
+    void PropertiesButtonClicked();
     void SaveMenuClicked() const;
     void LoadMenuClicked() const;
     void ResetMenuClicked() const;
@@ -44,6 +46,7 @@ private:
     Tree* curTree;
     TreeWidgetDirector* bsTreeDirector;
     TreeWidgetDirector* splayTreeDirector;
+    PropertiesWindow *prop;
 
 };
 

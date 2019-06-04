@@ -1,7 +1,7 @@
 #ifndef SPLAYTREE_H
 #define SPLAYTREE_H
 
-#include "bst.h"
+#include "tree.h"
 
 struct SplayNode: public Node{
     SplayNode(const int &val);
@@ -22,6 +22,7 @@ public:
 
     bool insert(const int &key) override;
     bool deleteItem(const int &val) override;
+    void accept(TreeVisitor &v) override;
 };
 
 #endif // SPLAYTREE_H

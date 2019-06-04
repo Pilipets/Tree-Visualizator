@@ -2,6 +2,7 @@
 #define TREE_H
 
 #include "treememento.h"
+#include "treevisitor.h"
 
 struct Node
 {
@@ -28,6 +29,7 @@ public:
 
     TreeMemento createMemento();
     void setMemento(const TreeMemento& state);
+    virtual void accept(TreeVisitor &v) = 0;
     void clear();
 protected:
     Node *root;

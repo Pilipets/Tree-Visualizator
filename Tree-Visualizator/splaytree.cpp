@@ -196,4 +196,9 @@ bool SplayTree::deleteItem(const int &val)
     return deletionResult.first;
 }
 
+void SplayTree::accept(TreeVisitor &v)
+{
+    v.visit(this);
+}
+
 SplayNode::SplayNode(const int &val) : Node(val){}

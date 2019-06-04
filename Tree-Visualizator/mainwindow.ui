@@ -60,7 +60,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="propButton">
          <property name="text">
           <string>Properties</string>
          </property>

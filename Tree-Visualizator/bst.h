@@ -15,8 +15,9 @@ public:
     BSTree() = default;
     ~BSTree() override = default;
 
-    virtual bool insert(const int &val) override;
-    virtual bool deleteItem(const int &val) override;
+    bool insert(const int &val) override;
+    bool deleteItem(const int &val) override;
+    void accept(TreeVisitor &v) override;
 };
 
 #endif // BST_H

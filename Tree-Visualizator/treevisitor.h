@@ -1,8 +1,10 @@
 #ifndef TREEVISITOR_H
 #define TREEVISITOR_H
 
-#include "bst.h"
-#include "splaytree.h"
+#include<QString>
+class BSTree;
+class SplayTree;
+class Tree;
 
 class TreeVisitor {
 public:
@@ -11,11 +13,19 @@ public:
   virtual ~TreeVisitor() = default;
 };
 
-class Element {
+class GetTraversal : public TreeVisitor{
+    public:
+    QString treeType;
+    QString preOrderTraversal;
+    QString inOrderTraversal;
+    QString postOrderTraversal;
 public:
-  virtual void accept(TreeVisitor &v) = 0;
-
-  virtual ~Element() = default;
+    void visit(BSTree *pTree) override;
+    void visit(SplayTree* pTree) override;
+private:
+    QString getPreOrderTraversal(Tree* tree) const;
+    QString getInOrderTraversal(Tree* tree) const;
+    QString getPostOrderTraversal(Tree* tree) const;
 };
 
 #endif // TREEVISITOR_H

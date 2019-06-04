@@ -5,11 +5,13 @@
 #include <QStandardPaths>
 #include <QFileInfo>
 #include <QFile>
-
+#include "propertieswindow.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    prop = new PropertiesWindow();
 
     bsTreeDirector = new TreeWidgetDirector(new BSTreeRenderWidgetBuilder);
     splayTreeDirector = new TreeWidgetDirector(new SplayTreeRenderWidgetBuilder);
@@ -18,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteClicked()));
     connect(ui->insertButton, SIGNAL(clicked()), this, SLOT(insertClicked()));
+    connect(ui->propButton, &QPushButton::clicked, this, &MainWindow::PropertiesButtonClicked);
 
     connectActions();
     // Create default save directory
@@ -28,10 +31,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    disconnect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteClicked()));
+    disconnect(ui->insertButton, SIGNAL(clicked()), this, SLOT(insertClicked()));
+    disconnect(ui->propButton, &QPushButton::clicked, this, &MainWindow::PropertiesButtonClicked);
     delete ui;
 
     delete bsTreeDirector;
     delete  splayTreeDirector;
+    delete prop;
 
 }
 
@@ -43,6 +50,23 @@ void MainWindow::connectActions()
     connect(ui->actionBST, &QAction::triggered, this, &MainWindow::newBSTreeOptionClicked);
     connect(ui->actionSplay_Tree, &QAction::triggered, this, &MainWindow::newSplayTreeOptionClicked);
     connect(ui->actionReset, &QAction::triggered, this, &MainWindow::ResetMenuClicked);
+}
+
+void MainWindow::disconnectActions()
+{
+    disconnect(ui->actionSave, &QAction::triggered, this, &MainWindow::SaveMenuClicked);
+    disconnect(ui->actionLoad, &QAction::triggered, this, &MainWindow::LoadMenuClicked);
+    disconnect(ui->actionExit, &QAction::triggered, this, &MainWindow::ExitMenuClicked);
+    disconnect(ui->actionBST, &QAction::triggered, this, &MainWindow::newBSTreeOptionClicked);
+    disconnect(ui->actionSplay_Tree, &QAction::triggered, this, &MainWindow::newSplayTreeOptionClicked);
+    disconnect(ui->actionReset, &QAction::triggered, this, &MainWindow::ResetMenuClicked);
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+
+    prop->closeWindow(); // close property window
+    event->setAccepted(true); // set whether to close application or not
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -89,6 +113,12 @@ void MainWindow::deleteClicked()
     }
     ui->renderArea->repaint();
     ui->deleteTxtBox->setText("");
+}
+
+void MainWindow::PropertiesButtonClicked()
+{
+    prop->show();
+    prop->update(this->curTree);
 }
 
 void MainWindow::SaveMenuClicked() const

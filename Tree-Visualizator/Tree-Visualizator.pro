@@ -33,7 +33,9 @@ SOURCES += \
     splaytree.cpp \
     tree.cpp \
     treedrawer.cpp \
-    treememento.cpp
+    treememento.cpp \
+    treevisitor.cpp \
+    propertieswindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -45,7 +47,8 @@ HEADERS += \
     treevisitor.h \
     tree.h \
     treedrawer.h \
-    treememento.h
+    treememento.h \
+    propertieswindow.h
 
 FORMS += \
         mainwindow.ui
