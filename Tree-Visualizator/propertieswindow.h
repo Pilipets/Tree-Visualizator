@@ -20,6 +20,11 @@ public:
     void closeWindow();
     void update(Tree *tree);
 private:
+    QVBoxLayout *labelLayout;
+    QLabel *typeLabel;
+    QLineEdit *typeValue;
+    QVBoxLayout *textAreaLayout;
+
     QHBoxLayout *containerLayout;
     QVBoxLayout *mainLayout;
     QTextEdit *inOrderTraversal;

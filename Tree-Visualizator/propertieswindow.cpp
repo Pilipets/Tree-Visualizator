@@ -5,7 +5,20 @@ PropertiesWindow::PropertiesWindow(QWidget *parent) : QMainWindow(parent)
     this->setWindowTitle("Tree Properties");
     this->setFixedSize(QSize(400, 400));
 
+    labelLayout = new QVBoxLayout;\
+    typeLabel = new QLabel("Tree Type:");
+    typeLabel->setStyleSheet("font-size: 14px;");
+    labelLayout->addWidget(typeLabel);
+    textAreaLayout = new QVBoxLayout;
+    typeValue = new QLineEdit("");
+    typeValue->setReadOnly(true);
+    typeValue->setStyleSheet("color: black; width: 100px;"
+                               "font-size: 14px;");
+    textAreaLayout->addWidget(typeValue);
+
     containerLayout = new QHBoxLayout;
+    containerLayout->addLayout(labelLayout);
+    containerLayout->addLayout(textAreaLayout);
 
     preOrderTraversal = new QTextEdit;
     inOrderTraversal = new QTextEdit;
@@ -15,7 +28,6 @@ PropertiesWindow::PropertiesWindow(QWidget *parent) : QMainWindow(parent)
     inOrderTraversal->setReadOnly(true);
     postOrderTraversal->setReadOnly(true);
 
-    // Create the main layout and add all the widgets to it
     mainLayout = new QVBoxLayout;
     mainLayout->addLayout(containerLayout);
     mainLayout->addWidget(new QLabel("Preorder Traversal:"));
@@ -33,6 +45,11 @@ PropertiesWindow::PropertiesWindow(QWidget *parent) : QMainWindow(parent)
 
 PropertiesWindow::~PropertiesWindow()
 {
+    delete labelLayout;
+    delete typeLabel;
+    delete typeValue;
+    delete textAreaLayout;
+
     delete containerLayout;
     delete preOrderTraversal;
     delete inOrderTraversal;
@@ -57,6 +74,7 @@ void PropertiesWindow::update(Tree *tree)
     GetTraversal info;
     tree->accept(info);
 
+    this->typeValue->setText(info.type);
     this->preOrderTraversal->setText(info.preOrderTraversal);
     this->inOrderTraversal->setText(info.inOrderTraversal);
     this->postOrderTraversal->setText(info.postOrderTraversal);

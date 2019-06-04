@@ -5,7 +5,7 @@
 #include <QStack>
 void GetTraversal::visit(BSTree *pTree)
 {
-    treeType = "Binary Search Tree";
+    type = "Binary Search Tree";
     inOrderTraversal = getInOrderTraversal(pTree);
     preOrderTraversal = getPreOrderTraversal(pTree);
     postOrderTraversal = getPostOrderTraversal(pTree);
@@ -13,7 +13,7 @@ void GetTraversal::visit(BSTree *pTree)
 
 void GetTraversal::visit(SplayTree *pTree)
 {
-    treeType = "Splay Tree";
+    type = "Splay Tree";
     inOrderTraversal = getInOrderTraversal(pTree);
     preOrderTraversal = getPreOrderTraversal(pTree);
     postOrderTraversal = getPostOrderTraversal(pTree);

@@ -15,7 +15,7 @@ public:
 
 class GetTraversal : public TreeVisitor{
     public:
-    QString treeType;
+    QString type;
     QString preOrderTraversal;
     QString inOrderTraversal;
     QString postOrderTraversal;
